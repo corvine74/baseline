@@ -1,0 +1,97 @@
+/* ========================================
+  GET COLOR FUNCTION
+  ========================================= */
+
+/* 
+  Function tries to match the passed $key with the $colors map. Returns null 
+  if it can’t find a match.
+
+  @param {string} $key - The color that you want to get
+*/
+
+
+/* ========================================
+  COLOR PALETTE
+  ========================================= */
+
+/*
+  This is a color palette builder which uses defined color tokens. This eliminates the need to define color shades within the color tokens.
+*/
+
+@import '../tokens/color.scss';
+
+
+/*
+  Create shades of each color and return values as a map
+*/  
+
+@function color-map($color, $values) {
+  $base:      $values;
+  $w50:  mix(white, $values, 99%);
+  $w100: mix(white, $values, 88%);
+  $w200: mix(white, $values, 77%);
+  $w300: mix(white, $values, 66%);
+  $w400: mix(white, $values, 55%);
+  $w500: mix(white, $values, 44%);
+  $w600: mix(white, $values, 33%);
+  $w700: mix(white, $values, 22%);
+  $w800: mix(white, $values, 11%);
+  $b50:  mix(black, $values, 11%);
+  $b100: mix(black, $values, 22%);
+  $b200: mix(black, $values, 33%);
+  $b300: mix(black, $values, 44%);
+  $b400: mix(black, $values, 55%);
+  $b500: mix(black, $values, 66%);
+  $b600: mix(black, $values, 77%);
+  $b700: mix(black, $values, 88%);
+  $b800: mix(black, $values, 99%);
+
+  $color-shades: (
+    #{$color}#{5}:  $w50,
+    #{$color}#{10}: $w100,
+    #{$color}#{15}: $w200,
+    #{$color}#{20}: $w300,
+    #{$color}#{25}: $w400,
+    #{$color}#{30}: $w500,
+    #{$color}#{35}: $w600,
+    #{$color}#{40}: $w700,
+    #{$color}#{45}: $w800,
+    #{$color}#{50}:  $b50,
+    #{$color}#{55}: $b100,
+    #{$color}#{60}: $b200,
+    #{$color}#{65}: $b300,
+    #{$color}#{70}: $b400,
+    #{$color}#{75}: $b500,
+    #{$color}#{80}: $b600,
+    #{$color}#{85}: $b700,
+    #{$color}#{90}: $b800
+  );
+
+  @return $color-shades;
+}
+
+/*
+  Set up master map for all colors
+*/ 
+@function color-maps($colors) {
+  $color-map: ();
+
+  @each $color, $value in $colors {
+    $map: (color-map($color, $value));
+    $color-map: map-merge($color-map, $map);
+  }
+
+  @return $color-map;
+}
+
+/*
+  Initiate maps function to build maps
+*/ 
+$color-map: color-maps($colors);
+
+/*
+  Function to better call colors from map
+*/  
+@function color($color, $shade) {
+  @return map-get($color-map, #{$color}#{$shade});
+}

@@ -1,0 +1,13 @@
+$spacing-xs:  remCalc(4);
+$spacing-sm:  remCalc(8);
+$spacing-md:  $baseSize;
+$spacing-lg:  remCalc(24);
+$spacing-xl:  remCalc(32);
+$spacing-2xl: remCalc(48);
+$layout-2xs:  $baseSize;
+$layout-xs:   remCalc(24);
+$layout-sm:   remCalc(32);
+$layout-md:   remCalc(48);
+$layout-lg:   remCalc(64);
+$layout-xl:   remCalc(96);
+$layout-2xl:  remCalc(192);
