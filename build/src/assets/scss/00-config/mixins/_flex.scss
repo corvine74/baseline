@@ -1,0 +1,39 @@
+/* ========================================
+  FLEXBOX
+  ========================================= */
+	
+	@mixin flexbox {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+	
+	@mixin flex($values: auto) {
+		-webkit-box-flex: $values;
+			 -moz-box-flex: $values;
+				-webkit-flex: $values;
+								flex: $values;
+	}
+	
+	@mixin flex-direction($value: column) {
+		-webkit-box-direction: $value;
+					 flex-direction: $value;
+	}
+	
+	@mixin flex-wrap($value: wrap) {
+		-ms-flex-wrap: $value;
+				flex-wrap: $value;
+	}
+	
+	@mixin align-items($align: stretch) {
+		-webkit-box-align: $align;
+					align-items: $align;
+	}
+	
+	@mixin justify-content($justify: flex-start) {
+		-webkit-box-pack: $justify;
+		 justify-content: $justify;
+	}
+	

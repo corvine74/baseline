@@ -1,0 +1,49 @@
+/* ========================================
+  FONT SIZE
+  ========================================= */
+
+	@mixin fontSize($size) {
+		font-size: $size;
+		font-size: remCalc($size);
+	}
+	
+	/* ========================================
+  LINE BREAK
+  ========================================= */
+
+/* 
+    Specifies how an element's content should be rendered when broken across multiple lines, columns, or pages.
+        * MDN box-decoration-break -- https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break
+*/
+@mixin box-decoration-break($value: slice) {
+	-webkit-box-decoration-break: $value;
+					box-decoration-break: $value;
+}
+
+
+/* ==========
+	Light color links for dark backgrounds
+	========== */
+
+@mixin light-links {
+	a:link {
+			color: get-theme('link-color-inverse');
+	}
+
+	a:visited {
+			color: get-theme('link-color-visited-inverse');
+	}
+
+	a:hover,
+	a:focus,
+	a:active {
+			color: get-theme('link-color-hover-inverse');
+	}
+
+	a:visited:hover,
+	a:visited:focus,
+	a:visited:active {
+			color: get-theme('link-color-visited-hover-inverse');
+	}
+}
+

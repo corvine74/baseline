@@ -1,0 +1,31 @@
+/* ========================================
+  IMAGES
+  ========================================= */
+
+	@mixin background-size($sizes...) {
+		-webkit-background-size: $sizes;
+						background-size: $sizes;
+	}
+	
+	/* ==========
+		Adds a right-pointing arrow after
+		========== */
+	
+	@mixin trailing-arrow {
+		&:after {
+				content: "\00A0\25B8"; // space+triangle
+				white-space: nowrap;
+		}
+	}
+	
+	/* ==========
+		Adds a left-pointing arrow before
+		========== */
+	
+	@mixin leading-arrow {
+		&:before {
+				content: "\25B8\00A0"; // triangle+space
+				white-space: nowrap;
+				@include transform(rotate(180deg));
+		}
+	}

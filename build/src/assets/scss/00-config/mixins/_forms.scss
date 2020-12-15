@@ -1,0 +1,14 @@
+/* ========================================
+  FORMS
+  ========================================= */
+
+/*
+    Used to display an element, <input>, using platform-native styling, based on the operating system's theme.
+
+        * MDN appearance -- https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+*/
+@mixin appearance($value) {
+	-webkit-appearance: $value;
+		 -moz-appearance: $value;
+				appearance: $value;
+}

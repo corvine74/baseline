@@ -1,0 +1,31 @@
+/* ========================================
+  LAYOUT
+  ========================================= */
+
+/* ==========
+	Multiple columns
+	========== */
+	
+	@mixin multi-column($width: auto, $count: auto, $gap: normal) {
+		-webkit-column-width: $width;
+			 -moz-column-width: $width;
+						column-width: $width;
+		-webkit-column-count: $count;
+			 -moz-column-count: $count;
+						column-count: $count;
+			-webkit-column-gap: $gap;
+				 -moz-column-gap: $gap;
+							column-gap: $gap;
+	}
+	
+	@mixin multi-column-clear {
+		@include multi-column(auto, auto, normal);
+	}
+	
+	@mixin multi-column-avoid-break {
+		page-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+			 -moz-column-break-inside: avoid;
+									 break-inside: avoid;
+	}
+	
